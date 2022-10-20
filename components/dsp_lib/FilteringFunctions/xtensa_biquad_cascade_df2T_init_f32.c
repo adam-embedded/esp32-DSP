@@ -3,13 +3,13 @@
  * Title:        xtensa_biquad_cascade_df2T_init_f32.c
  * Description:  Initialization function for floating-point transposed direct form II Biquad cascade filter
  *
- * $Date:        27. January 2017
- * $Revision:    V.1.5.1
+ * $Date:        23 April 2021
+ * $Revision:    V1.9.0
  *
- * Target Processor: Cortex-M cores
+ * Target Processor: ESP-32 series
  * -------------------------------------------------------------------- */
 /*
- * Copyright (C) 2010-2017 ARM Limited or its affiliates. All rights reserved.
+ * Copyright (C) 2010-2021 ARM Limited or its affiliates. All rights reserved.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -66,10 +66,10 @@
  */
 
 void xtensa_biquad_cascade_df2T_init_f32(
-  xtensa_biquad_cascade_df2T_instance_f32 * S,
-  uint8_t numStages,
-  float32_t * pCoeffs,
-  float32_t * pState)
+        xtensa_biquad_cascade_df2T_instance_f32 * S,
+        uint8_t numStages,
+  const float32_t * pCoeffs,
+        float32_t * pState)
 {
   /* Assign filter stages */
   S->numStages = numStages;

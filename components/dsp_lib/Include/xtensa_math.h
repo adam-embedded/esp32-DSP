@@ -1131,9 +1131,9 @@ void xtensa_rfft_fast_f32(
    */
   void xtensa_biquad_cascade_df2T_f32(
   const xtensa_biquad_cascade_df2T_instance_f32 * S,
-  float32_t * pSrc,
-  float32_t * pDst,
-  uint32_t blockSize);
+  const float32_t * pSrc,
+        float32_t * pDst,
+        uint32_t blockSize);
 
 
   /**
@@ -1161,10 +1161,10 @@ void xtensa_rfft_fast_f32(
    * @param[in]     pState     points to the state buffer.
    */
   void xtensa_biquad_cascade_df2T_init_f32(
-  xtensa_biquad_cascade_df2T_instance_f32 * S,
-  uint8_t numStages,
-  float32_t * pCoeffs,
-  float32_t * pState);
+          xtensa_biquad_cascade_df2T_instance_f32 * S,
+          uint8_t numStages,
+    const float32_t * pCoeffs,
+          float32_t * pState);
 
 
   /**
