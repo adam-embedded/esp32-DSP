@@ -1096,7 +1096,15 @@ void xtensa_rfft_fast_f32(
   uint32_t blockSize);
 
 
- 
+  /**
+   * @brief Instance structure for the floating-point transposed direct form II Biquad cascade filter.
+   */
+  typedef struct
+  {
+          uint8_t numStages;         /**< number of 2nd order stages in the filter.  Overall order is 2*numStages. */
+          float64_t *pState;         /**< points to the array of state coefficients.  The array is of length 2*numStages. */
+    const float64_t *pCoeffs;        /**< points to the array of coefficients.  The array is of length 5*numStages. */
+  } xtensa_biquad_cascade_df2T_instance_f64;
 
 
   /**
@@ -1120,7 +1128,18 @@ void xtensa_rfft_fast_f32(
   } xtensa_biquad_cascade_stereo_df2T_instance_f32;
 
   
-
+  /**
+   * @brief Processing function for the floating-point transposed direct form II Biquad cascade filter.
+   * @param[in]  S          points to an instance of the filter data structure.
+   * @param[in]  pSrc       points to the block of input data.
+   * @param[out] pDst       points to the block of output data
+   * @param[in]  blockSize  number of samples to process.
+   */
+  void xtensa_biquad_cascade_df2T_f64(
+  const xtensa_biquad_cascade_df2T_instance_f64 * S,
+  const float64_t * pSrc,
+        float64_t * pDst,
+        uint32_t blockSize);
 
   /**
    * @brief Processing function for the floating-point transposed direct form II Biquad cascade filter.
@@ -1134,6 +1153,9 @@ void xtensa_rfft_fast_f32(
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
+
+
+
 
 
   /**
@@ -1150,7 +1172,18 @@ void xtensa_rfft_fast_f32(
   uint32_t blockSize);
 
 
- 
+   /**
+   * @brief  Initialization function for the floating-point transposed direct form II Biquad cascade filter.
+   * @param[in,out] S          points to an instance of the filter data structure.
+   * @param[in]     numStages  number of 2nd order stages in the filter.
+   * @param[in]     pCoeffs    points to the filter coefficients.
+   * @param[in]     pState     points to the state buffer.
+   */
+  void xtensa_biquad_cascade_df2T_init_f64(
+        xtensa_biquad_cascade_df2T_instance_f64 * S,
+        uint8_t numStages,
+        const float64_t * pCoeffs,
+        float64_t * pState);
 
 
   /**
