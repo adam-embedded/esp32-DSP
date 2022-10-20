@@ -354,7 +354,7 @@ extern "C"
   } xtensa_status;
 
 ///////////////////////////////////////
-/* Type Definitions */
+/* Basic Type Definitions */
 ///////////////////////////////////////
   /**
    * @brief 32-bit floating-point type definition.
@@ -365,6 +365,11 @@ extern "C"
    * @brief 64-bit floating-point type definition.
    */
   typedef double float64_t;
+
+    /**
+   * @brief 32-bit fractional data type in 1.31 format.
+   */
+  typedef int32_t q31_t;
 
 //////////////////////////////////////////
 /* End Type Definitions */
@@ -994,7 +999,16 @@ void xtensa_rfft_fast_f32(
 
  
 
-
+  /**
+   * @brief Instance structure for the Q31 FIR decimator.
+   */
+  typedef struct
+  {
+          uint8_t M;                  /**< decimation factor. */
+          uint16_t numTaps;           /**< number of coefficients in the filter. */
+    const q31_t *pCoeffs;             /**< points to the coefficient array. The array is of length numTaps.*/
+          q31_t *pState;              /**< points to the state variable array. The array is of length numTaps+blockSize-1. */
+  } xtensa_fir_decimate_instance_q31;
 
 
   /**
