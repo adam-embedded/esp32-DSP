@@ -359,7 +359,10 @@ extern "C"
    */
   typedef float float32_t;
 
-
+  /**
+   * @brief 64-bit floating-point type definition.
+   */
+  typedef double float64_t;
 
   
 
