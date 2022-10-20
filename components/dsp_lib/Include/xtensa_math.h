@@ -993,7 +993,7 @@ extern "C"
     uint16_t numTaps;     /**< number of coefficients in the filter. */
     const q31_t *pCoeffs; /**< points to the coefficient array. The array is of length numTaps.*/
     q31_t *pState;        /**< points to the state variable array. The array is of length numTaps+blockSize-1. */
-  } arm_fir_decimate_instance_q31;
+  } xtensa_fir_decimate_instance_q31;
 
   /**
    * @brief  Initialization function for the Q31 FIR decimator.
@@ -1021,8 +1021,8 @@ extern "C"
    * @param[out] pDst       points to the block of output data
    * @param[in]  blockSize  number of input samples to process per call.
    */
-  void arm_fir_decimate_fast_q31(
-      const arm_fir_decimate_instance_q31 *S,
+  void xtensa_fir_decimate_fast_q31(
+      const xtensa_fir_decimate_instance_q31 *S,
       const q31_t *pSrc,
       q31_t *pDst,
       uint32_t blockSize);
