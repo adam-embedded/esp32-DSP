@@ -353,7 +353,9 @@ extern "C"
     XTENSA_MATH_TEST_FAILURE = -6           /**< Test Failed  */
   } xtensa_status;
 
-
+///////////////////////////////////////
+/* Type Definitions */
+///////////////////////////////////////
   /**
    * @brief 32-bit floating-point type definition.
    */
@@ -364,23 +366,9 @@ extern "C"
    */
   typedef double float64_t;
 
-  
-
- 
-
-
-
-
-
-
-  
-
-
-
-
-  
-
-  
+//////////////////////////////////////////
+/* End Type Definitions */
+//////////////////////////////////////////
 
   /**
    * @brief Instance structure for the floating-point FIR filter.
@@ -391,10 +379,6 @@ extern "C"
     float32_t *pState;    /**< points to the state variable array. The array is of length numTaps+blockSize-1. */
     float32_t *pCoeffs;   /**< points to the coefficient array. The array is of length numTaps. */
   } xtensa_fir_instance_f32;
-
-
-  
-
 
   /**
    * @brief Processing function for the floating-point FIR filter.
@@ -426,8 +410,6 @@ extern "C"
   uint32_t blockSize);
 
 
-  
-
   /**
    * @brief Instance structure for the floating-point Biquad cascade filter.
    */
@@ -437,9 +419,6 @@ extern "C"
     float32_t *pState;       /**< Points to the array of state coefficients.  The array is of length 4*numStages. */
     float32_t *pCoeffs;      /**< Points to the array of coefficients.  The array is of length 5*numStages. */
   } xtensa_biquad_casd_df1_inst_f32;
-
-
-  
 
 
   /**
@@ -480,12 +459,6 @@ extern "C"
     float32_t *pData;     /**< points to the data of the matrix. */
   } xtensa_matrix_instance_f32;
 
-
-
-
-  
-
-
   /**
    * @brief Floating-point matrix addition.
    * @param[in]  pSrcA  points to the first input matrix structure
@@ -498,10 +471,6 @@ extern "C"
   const xtensa_matrix_instance_f32 * pSrcA,
   const xtensa_matrix_instance_f32 * pSrcB,
   xtensa_matrix_instance_f32 * pDst);
-
-
- 
-
 
   /**
    * @brief Floating-point, complex, matrix multiplication.
@@ -657,17 +626,6 @@ extern "C"
     float32_t *pData;   /**< points to the data table. */
   } xtensa_bilinear_interp_instance_f32;
 
-   /**
-   * @brief Instance structure for the Q31 bilinear interpolation function.
-   */
-  
-
-
- 
-
-   
-
-
  
 
   /**
@@ -683,8 +641,6 @@ extern "C"
   float32_t * pDst,
   uint32_t blockSize);
 
-
-  
 
  
 
@@ -857,9 +813,6 @@ void xtensa_rfft_fast_f32(
 
 
 
-
-
-
   /**
    * @brief Floating-point vector addition.
    * @param[in]  pSrcA      points to the first input vector
@@ -873,8 +826,6 @@ void xtensa_rfft_fast_f32(
   float32_t * pDst,
   uint32_t blockSize);
 
-
- 
 
 
   /**
@@ -890,8 +841,6 @@ void xtensa_rfft_fast_f32(
   float32_t * pDst,
   uint32_t blockSize);
 
-
- 
 
 
   /**
@@ -1642,9 +1591,6 @@ void xtensa_rfft_fast_f32(
     return (out);
 
   }
-
-  
-
 
   
 
