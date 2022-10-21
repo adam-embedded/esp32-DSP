@@ -328,6 +328,8 @@ extern "C"
 #define PI 3.14159265358979f
 #endif
 
+#define __STATIC_FORCEINLINE static inline __attribute__((always_inline)) 
+
   /**
    * @brief Macros required for SINE and COSINE Fast math approximations
    */
@@ -375,6 +377,30 @@ extern "C"
   //////////////////////////////////////////
   /* End Type Definitions */
   //////////////////////////////////////////
+
+  /**
+   * @brief Clips Q63 to Q31 values.
+   */
+  __STATIC_FORCEINLINE q31_t clip_q63_to_q31(
+  q63_t x)
+  {
+    return ((q31_t) (x >> 32) != ((q31_t) x >> 31)) ?
+      ((0x7FFFFFFF ^ ((q31_t) (x >> 63)))) : (q31_t) x;
+  }
+
+/*
+   * @brief C custom defined QADD
+   */
+  __STATIC_FORCEINLINE int32_t __QADD(
+  int32_t x,
+  int32_t y)
+  {
+    return ((int32_t)(clip_q63_to_q31((q63_t)x + (q31_t)y)));
+  }
+
+
+
+
 
   /**
    * @brief Instance structure for the floating-point FIR filter.
