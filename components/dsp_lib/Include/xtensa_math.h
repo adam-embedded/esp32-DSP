@@ -985,17 +985,6 @@ extern "C"
       uint32_t blockSize);
 
   /**
-   * @brief Instance structure for the Q31 FIR decimator.
-   */
-  typedef struct
-  {
-    uint8_t M;            /**< decimation factor. */
-    uint16_t numTaps;     /**< number of coefficients in the filter. */
-    const q31_t *pCoeffs; /**< points to the coefficient array. The array is of length numTaps.*/
-    q31_t *pState;        /**< points to the state variable array. The array is of length numTaps+blockSize-1. */
-  } xtensa_fir_decimate_instance_q31;
-
-  /**
    * @brief  Initialization function for the Q31 FIR decimator.
    * @param[in,out] S          points to an instance of the Q31 FIR decimator structure.
    * @param[in]     numTaps    number of coefficients in the filter.
@@ -1024,6 +1013,19 @@ extern "C"
   void xtensa_fir_decimate_fast_q31(
       const xtensa_fir_decimate_instance_q31 *S,
       const q31_t *pSrc,
+      q31_t *pDst,
+      uint32_t blockSize);
+
+  /**
+   * @brief  Adds a constant offset to a Q31 vector.
+   * @param[in]  pSrc       points to the input vector
+   * @param[in]  offset     is the offset to be added
+   * @param[out] pDst       points to the output vector
+   * @param[in]  blockSize  number of samples in the vector
+   */
+  void xtensa_offset_q31(
+      const q31_t *pSrc,
+      q31_t offset,
       q31_t *pDst,
       uint32_t blockSize);
 
